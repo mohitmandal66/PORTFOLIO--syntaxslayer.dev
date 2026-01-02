@@ -23,33 +23,33 @@
             scroll-behavior: smooth;
         }
 
-        /* FIXED VISIBLE STAR FIELD */
+        /* --- ADVANCED 3D STAR PARALLAX --- */
         #star-field {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             pointer-events: none;
             overflow: hidden;
-            background: transparent;
         }
         
         .star-layer {
             position: absolute;
-            top: -500px; left: -500px; width: calc(100% + 1000px); height: calc(100% + 1000px);
-            transition: transform 0.1s ease-out;
+            top: -10%; left: -10%; width: 120%; height: 120%;
+            transition: transform 0.2s cubic-bezier(0.1, 0.5, 0.2, 1);
+            will-change: transform;
         }
 
         .star {
             position: absolute;
             background: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 0 8px #ffffff;
-            animation: sparkle var(--duration) infinite ease-in-out;
+            box-shadow: 0 0 6px #ffffff;
+            animation: twinkle var(--duration) infinite ease-in-out;
         }
 
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.5); }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         .universe-bg {
@@ -206,9 +206,7 @@
     <div class="universe-bg"></div>
     
     <div id="star-field">
-        <div class="star-layer" id="layer1" data-speed="0.05"></div>
-        <div class="star-layer" id="layer2" data-speed="0.02"></div>
-    </div>
+        <div class="star-layer" id="layer1" data-speed="0.10"></div> <div class="star-layer" id="layer2" data-speed="0.05"></div> <div class="star-layer" id="layer3" data-speed="0.02"></div> </div>
 
     <div id="projectModal">
         <h2 id="modalTitle" style="font-family: 'Syncopate'; color: var(--neon-blue);">PROJECT</h2>
@@ -260,12 +258,11 @@
                 <h2 style="font-family: 'Syncopate'; color: var(--neon-blue); font-size: 2rem;">MOHIT MANDAL</h2>
                 <h4 style="color: var(--neon-pink); font-family: 'Syncopate'; letter-spacing: 3px;">LEAD DEVELOPER & CORE ARCHITECT | AGE: 16</h4>
                 <p style="color:#bbb; line-height: 1.8; font-size: 1.1rem;">
-                    A coding prodigy and systems architect who mastered the digital void at age 16. Mohit is responsible for the complex neural logic and back-end structural integrity of our solar ecosystems. Known for rewriting legacy protocols in record time, he ensures every planet in our portfolio spins with mathematical precision.
+                    A coding prodigy who mastered system architecture at 16. Mohit is responsible for the complex neural logic and back-end structural integrity of our solar ecosystems. He ensures every planet spins with mathematical precision.
                 </p>
                 <div style="margin: 20px 0;">
                     <span class="skill-tag">NEURAL NETWORKS</span> <span class="skill-tag">CORE LOGIC</span> 
-                    <span class="skill-tag">JS ENGINE</span> <span class="skill-tag">ADVANCED PYTHON</span> 
-                    <span class="skill-tag">CYBER ARCHITECTURE</span>
+                    <span class="skill-tag">ADVANCED PYTHON</span> <span class="skill-tag">CYBER ARCHITECTURE</span>
                 </div>
                 <a href="https://wa.me/918822357598" class="modal-btn">CONTACT ARCHITECT</a>
             </div>
@@ -278,13 +275,12 @@
                 <h2 style="font-family: 'Syncopate'; color: var(--neon-pink); font-size: 2rem;">MD SAAD SIDDIQUE</h2>
                 <h4 style="color: var(--neon-blue); font-family: 'Syncopate'; letter-spacing: 3px;">VISUAL MASTER & DESIGN VISIONARY | AGE: 16</h4>
                 <p style="color:#bbb; line-height: 1.8; font-size: 1.1rem;">
-                    The 16-year-old creative force behind the aesthetic universe. Saad specializes in weaving high-fidelity visuals with interactive 3D environments. His work pushes the boundaries of WebGL and AR/VR integration, transforming simple websites into immersive cinematic portals. If it looks like the future, Saad built it.
+                    The 16-year-old creative force behind the aesthetic universe. Saad specializes in weaving high-fidelity visuals with interactive 3D environments, transforming websites into immersive cinematic portals.
                 </p>
                 <div style="margin: 20px 0;">
                     <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">3D RENDERING</span> 
                     <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">AR INTERFACES</span> 
-                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">VFX DESIGN</span> 
-                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">DIGITAL CINEMATICS</span>
+                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">VFX DESIGN</span>
                 </div>
                 <a href="https://wa.me/919954204298" class="modal-btn" style="background: var(--neon-pink); color:white;">CONTACT DESIGNER</a>
             </div>
@@ -328,33 +324,36 @@
             setTimeout(() => { window.location.href = url; }, 800);
         }
 
-        // GENERATE PURE WHITE SPARKLING STARS
-        const layers = document.querySelectorAll('.star-layer');
-        layers.forEach(layer => {
-            for (let i = 0; i < 150; i++) {
-                const s = document.createElement('div');
-                s.className = 'star';
-                const size = Math.random() * 3 + 1 + 'px';
-                s.style.width = size;
-                s.style.height = size;
-                s.style.left = Math.random() * 100 + '%';
-                s.style.top = Math.random() * 100 + '%';
-                s.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
-                s.style.animationDelay = Math.random() * 5 + 's';
-                layer.appendChild(s);
+        // --- STAR GENERATION ---
+        const starLayers = document.querySelectorAll('.star-layer');
+        const starCounts = [80, 120, 200]; // Distribution for Near, Mid, Far
+
+        starLayers.forEach((layer, index) => {
+            for (let i = 0; i < starCounts[index]; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                // Adjust size: Nearer stars are slightly larger
+                const size = (3 - index) + Math.random() * 2 + 'px';
+                star.style.width = size;
+                star.style.height = size;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+                star.style.animationDelay = Math.random() * 5 + 's';
+                layer.appendChild(star);
             }
         });
 
-        // PARALLAX TOUCH/MOUSE
+        // --- PARALLAX INPUT HANDLING ---
         function moveStars(e) {
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
             const clientY = e.touches ? e.touches[0].clientY : e.clientY;
             
-            const x = clientX - window.innerWidth / 2;
-            const y = clientY - window.innerHeight / 2;
+            const x = (clientX - window.innerWidth / 2);
+            const y = (clientY - window.innerHeight / 2);
             
-            layers.forEach(layer => {
-                const speed = layer.getAttribute('data-speed');
+            starLayers.forEach(layer => {
+                const speed = parseFloat(layer.getAttribute('data-speed'));
                 layer.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
             });
         }
