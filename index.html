@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OUR PROJECTS PORTFOLIO | Mohit & Saad</title>
+    <title>SOLAR PORTFOLIO | Mohit & Saad</title>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -90,7 +90,7 @@
 
         .planet {
             position: absolute;
-            width: 45px; height: 45px;
+            width: 40px; height: 40px;
             border-radius: 50%;
             cursor: pointer;
             pointer-events: auto;
@@ -100,12 +100,11 @@
         }
         .planet:hover { transform: scale(1.4); box-shadow: 0 0 40px var(--neon-blue); }
 
-        /* Planet Positions & Colors */
-        .p1 { background: radial-gradient(circle at 30% 30%, #4facfe, #00f2fe, #000); top: -22.5px; left: 50%; margin-left: -22.5px; }
-        .p2 { background: radial-gradient(circle at 30% 30%, #f093fb, #f5576c, #000); top: 50%; left: -22.5px; margin-top: -22.5px; }
-        .p3 { background: radial-gradient(circle at 30% 30%, #fff, #bdc3c7, #000); bottom: -22.5px; left: 50%; margin-left: -22.5px; }
-        .p4 { background: radial-gradient(circle at 30% 30%, #ff9a6a, var(--portal-orange), #000); top: 50%; right: -22.5px; margin-top: -22.5px; }
-        .p5 { background: radial-gradient(circle at 30% 30%, #00ff41, #008f11, #000); top: -22.5px; left: 50%; margin-left: -22.5px; }
+        .p1 { background: radial-gradient(circle at 30% 30%, #4facfe, #00f2fe, #000); top: -20px; left: 50%; margin-left: -20px; }
+        .p2 { background: radial-gradient(circle at 30% 30%, #f093fb, #f5576c, #000); top: 50%; left: -20px; margin-top: -20px; }
+        .p3 { background: radial-gradient(circle at 30% 30%, #fff, #bdc3c7, #000); bottom: -20px; left: 50%; margin-left: -20px; }
+        .p4 { background: radial-gradient(circle at 30% 30%, #ff9a6a, var(--portal-orange), #000); top: 50%; right: -20px; margin-top: -20px; }
+        .p5 { background: radial-gradient(circle at 30% 30%, #00ff41, #008f11, #000); top: -20px; left: 50%; margin-left: -20px; }
 
         .project-label {
             position: absolute;
@@ -131,7 +130,6 @@
             text-align: center;
         }
         #projectModal.active { display: block; animation: modalPop 0.4s forwards; }
-        @keyframes modalPop { to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
 
         .modal-btn {
             margin-top: 15px;
@@ -139,36 +137,37 @@
             color: #000; border: none;
             padding: 8px 18px; font-family: 'Syncopate';
             font-weight: 700; cursor: pointer;
-            transition: 0.3s;
+            transition: 0.3s; text-decoration: none; display: inline-block;
         }
-        .modal-btn:hover { background: #fff; box-shadow: 0 0 15px var(--neon-blue); }
 
         .about-sec {
             min-height: 100vh; display: flex; justify-content: center; align-items: center;
             background: #000; padding: 50px;
         }
         .about-card {
-            max-width: 900px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px;
-            background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 1000px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px;
+            background: rgba(255,255,255,0.03); padding: 50px; border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
         }
-        .about-card img { width: 100%; border-radius: 15px; border: 1px solid var(--neon-blue); object-fit: cover; aspect-ratio: 3/4;}
+        .about-card img { width: 100%; border-radius: 20px; border: 2px solid var(--neon-blue); filter: grayscale(50%); transition: 0.5s;}
+        .about-card:hover img { filter: grayscale(0%); transform: scale(1.02); }
         
+        .skill-tag {
+            display: inline-block;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--neon-blue);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin: 4px;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            font-family: 'Syncopate';
+        }
+
         .scroll-down {
             position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
             display: flex; flex-direction: column; align-items: center;
             font-family: 'Syncopate'; font-size: 0.6rem; color: var(--neon-blue); letter-spacing: 3px;
-        }
-        .arrow {
-            width: 10px; height: 10px; border-right: 2px solid var(--neon-blue);
-            border-bottom: 2px solid var(--neon-blue); transform: rotate(45deg);
-            margin-top: 5px; animation: arrowBounce 1.5s infinite;
-        }
-        @keyframes arrowBounce { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
-
-        @media (max-width: 768px) {
-            .hero { transform: scale(0.5); }
-            .about-card { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -214,45 +213,54 @@
             </div>
 
             <div class="orbit" style="width: 860px; height: 860px; animation-duration: 55s;">
-                <div class="planet p5" onclick="showDetails('NEW SYSTEM', 'Upcoming core architecture project.', '#')">
-                    <div class="project-label" style="text-shadow: 0 0 8px var(--matrix-green);">NEW SYSTEM</div>
+                <div class="planet p5" onclick="showDetails('NEURAL CORE', 'Next-gen architecture project.', '#')">
+                    <div class="project-label" style="text-shadow: 0 0 8px var(--matrix-green);">NEURAL CORE</div>
                 </div>
             </div>
         </div>
 
-        <div class="scroll-down">
-            ARCHITECTS BELOW
-            <div class="arrow"></div>
-        </div>
+        <div class="scroll-down">DEVELOPER PROFILES</div>
     </section>
 
     <section class="about-sec">
         <div class="about-card">
             <div>
-                <img src="me.png" alt="Mohit" onerror="this.src='https://via.placeholder.com/300x400/000/00f2fe?text=MOHIT'">
+                <img src="me.png" alt="Mohit" onerror="this.src='https://via.placeholder.com/400x500/000/00f2fe?text=MOHIT'">
             </div>
             <div class="bio">
-                <h2 style="font-family: 'Syncopate'; color: var(--neon-blue);">MOHIT MANDAL</h2>
-                <h4 style="color: var(--neon-pink); font-family: 'Syncopate'; font-size: 0.7rem; margin: 10px 0;">CORE ARCHITECT</h4>
-                <p style="color:#ccc;">Building the next generation of web performance.</p>
-                <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <a href="https://github.com/mohitmandal66" style="color:var(--neon-blue); text-decoration: none; font-size: 0.8rem; border: 1px solid; padding: 5px 10px;">GITHUB</a>
+                <h2 style="font-family: 'Syncopate'; color: var(--neon-blue); font-size: 2rem;">MOHIT MANDAL</h2>
+                <h4 style="color: var(--neon-pink); font-family: 'Syncopate'; letter-spacing: 3px;">LEAD DEVELOPER & CODE EDITOR</h4>
+                <p style="color:#bbb; line-height: 1.8; font-size: 1.1rem;">
+                    The architectural backbone of every project. Mohit specializes in translating complex logic into seamless digital experiences. As the Lead Developer, he manages code integrity and system optimization across multiple programming environments.
+                </p>
+                <div style="margin: 20px 0;">
+                    <span class="skill-tag">HTML5</span> <span class="skill-tag">CSS3</span> 
+                    <span class="skill-tag">JAVASCRIPT</span> <span class="skill-tag">JSON</span> 
+                    <span class="skill-tag">PYTHON</span> <span class="skill-tag">C++</span>
                 </div>
-                <a href="https://wa.me/918822357598" class="modal-btn" style="display: block; text-align: center; margin-top: 20px; text-decoration: none;">CONTACT MOHIT</a>
+                <a href="https://wa.me/918822357598" class="modal-btn">CONTACT ARCHITECT</a>
             </div>
         </div>
     </section>
 
     <section class="about-sec" style="background: radial-gradient(circle at bottom, #110008 0%, #000 70%);">
-        <div class="about-card" style="border-color: var(--neon-pink);">
+        <div class="about-card" style="border-color: var(--neon-pink); grid-template-columns: 2fr 1fr;">
             <div class="bio" style="text-align: right;">
-                <h2 style="font-family: 'Syncopate'; color: var(--neon-pink);">MD SAAD SIDDIQUE</h2>
-                <h4 style="color: var(--neon-blue); font-family: 'Syncopate'; font-size: 0.7rem; margin: 10px 0;">VISUAL ARCHITECT</h4>
-                <p style="color:#ccc;">Creating digital aesthetics and motion design.</p>
+                <h2 style="font-family: 'Syncopate'; color: var(--neon-pink); font-size: 2rem;">MD SAAD SIDDIQUE</h2>
+                <h4 style="color: var(--neon-blue); font-family: 'Syncopate'; letter-spacing: 3px;">VISUAL & AR ARCHITECT</h4>
+                <p style="color:#bbb; line-height: 1.8; font-size: 1.1rem;">
+                    The visionary behind the aesthetics. Saad crafts the visual identity of our digital worlds, blending 3D modeling with immersive AR interfaces. From high-end video editing to advanced graphics design, he ensures every frame is a masterpiece.
+                </p>
+                <div style="margin: 20px 0;">
+                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">3D WEBSITES</span> 
+                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">AR INTERFACES</span> 
+                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">VIDEO EDITING</span> 
+                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">GRAPHIC DESIGN</span>
+                </div>
+                <a href="https://wa.me/919954204298" class="modal-btn" style="background: var(--neon-pink); color:white;">CONTACT DESIGNER</a>
             </div>
-            <div style="order: -1;"> 
-                <img src="saad.png" alt="Saad" onerror="this.src='https://via.placeholder.com/300x400/000/ff007f?text=SAAD'">
-                <a href="https://wa.me/919954204298" class="modal-btn" style="display: block; text-align: center; margin-top: 20px; background: var(--neon-pink); color: white; text-decoration: none;">CONTACT SAAD</a>
+            <div style="order: 2;"> 
+                <img src="saad.png" alt="Saad" style="border-color: var(--neon-pink);" onerror="this.src='https://via.placeholder.com/400x500/000/ff007f?text=SAAD'">
             </div>
         </div>
     </section>
@@ -276,15 +284,13 @@
         }
 
         function warpTo(url) {
-            if(url === "#") { alert("System Initializing... Stay Tuned."); return; }
+            if(url === "#") { alert("Neural Core Initializing..."); return; }
             stage.style.transform = "scale(15) translateZ(1000px)";
             stage.style.opacity = "0";
-            setTimeout(() => {
-                window.location.href = url; // Opens in SAME TAB
-            }, 800);
+            setTimeout(() => { window.location.href = url; }, 800);
         }
 
-        for (let i = 0; i < 120; i++) {
+        for (let i = 0; i < 150; i++) {
             const s = document.createElement('div');
             s.style.position = 'absolute'; s.style.background = '#fff';
             s.style.width = '1px'; s.style.height = '1px';
