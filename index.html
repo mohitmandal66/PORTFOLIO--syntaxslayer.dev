@@ -10,6 +10,7 @@
             --neon-blue: #00f2fe;
             --neon-pink: #ff007f;
             --sun-halo: #ffcc00;
+            --neon-orange: #ffab40;
         }
 
         * { box-sizing: border-box; }
@@ -68,7 +69,7 @@
 
         .sun-sphere {
             position: absolute;
-            width: 100px; height: 100px;
+            width: 80px; height: 80px;
             border-radius: 50%;
             background: radial-gradient(circle at 35% 35%, #fff 0%, var(--sun-halo) 40%, #ff4400 80%, #000 100%);
             box-shadow: 0 0 80px var(--sun-halo), inset -10px -10px 30px rgba(0,0,0,0.8);
@@ -90,25 +91,27 @@
 
         .planet {
             position: absolute;
-            width: 60px; height: 60px;
+            width: 50px; height: 50px;
             border-radius: 50%;
             cursor: pointer;
             pointer-events: auto;
             transform-style: preserve-3d;
-            box-shadow: inset -12px -12px 25px rgba(0,0,0,0.9), inset 8px 8px 15px rgba(255,255,255,0.2), 0 0 20px rgba(0, 242, 254, 0.3);
+            box-shadow: inset -12px -12px 25px rgba(0,0,0,0.9), inset 8px 8px 15px rgba(255,255,255,0.2);
             transition: 0.4s;
         }
         .planet:hover { transform: scale(1.3); box-shadow: 0 0 40px var(--neon-blue); }
 
-        .p1 { background: radial-gradient(circle at 30% 30%, #4facfe, #00f2fe, #000); top: -30px; left: 50%; margin-left: -30px; }
-        .p2 { background: radial-gradient(circle at 30% 30%, #f093fb, #f5576c, #000); top: 50%; left: -30px; margin-top: -30px; }
-        .p3 { background: radial-gradient(circle at 30% 30%, #fff, #bdc3c7, #000); bottom: -30px; left: 50%; margin-left: -30px; }
+        /* Specific Planet Colors */
+        .p1 { background: radial-gradient(circle at 30% 30%, #4facfe, #00f2fe, #000); top: -25px; left: 50%; margin-left: -25px; }
+        .p2 { background: radial-gradient(circle at 30% 30%, #f093fb, #f5576c, #000); top: 50%; left: -25px; margin-top: -25px; }
+        .p3 { background: radial-gradient(circle at 30% 30%, #fff, #bdc3c7, #000); bottom: -25px; left: 50%; margin-left: -25px; }
+        .p4 { background: radial-gradient(circle at 30% 30%, #ff9a9e, #fecfef, #000); top: 50%; right: -25px; margin-top: -25px; }
 
         .project-label {
             position: absolute;
             top: -45px; left: 50%;
             transform: translateX(-50%) rotateX(-75deg);
-            font-family: 'Syncopate'; font-size: 0.7rem; color: #fff;
+            font-family: 'Syncopate'; font-size: 0.6rem; color: #fff;
             text-shadow: 0 0 8px var(--neon-blue);
             white-space: nowrap; font-weight: 700;
         }
@@ -226,146 +229,10 @@
         <div id="stage">
             <div class="sun-sphere"></div>
 
-            <div class="orbit" id="orbit1" style="width: 320px; height: 320px; animation-duration: 25s;">
+            <div class="orbit" id="orbit1" style="width: 280px; height: 280px; animation-duration: 20s;">
                 <div class="planet p1" onclick="showDetails('PADHAI MATE', 'A futuristic educational ecosystem designed for focused learning.', 'https://mohitmandal66.github.io/padhai_mate/')">
                     <div class="project-label">PADHAI MATE</div>
                 </div>
             </div>
 
-            <div class="orbit" id="orbit2" style="width: 550px; height: 550px; animation-duration: 35s; animation-direction: reverse;">
-                <div class="planet p2" onclick="showDetails('SYMPTOMAX', 'Advanced health diagnostic interface for quick symptom analysis.', 'https://mohitmandal66.github.io/SYMPTOMAX/')">
-                    <div class="project-label" style="text-shadow: 0 0 8px var(--neon-pink);">SYMPTOMAX</div>
-                </div>
-            </div>
-
-            <div class="orbit" id="orbit3" style="width: 800px; height: 800px; animation-duration: 45s;">
-                <div class="planet p3" onclick="showDetails('CAFE OKTOBER', 'Cinematic digital menu system for high-end experiences.', 'https://my-website108.github.io/CAFE_OKTOBER/')">
-                    <div class="project-label" style="text-shadow: 0 0 8px #fff;">CAFE OKTOBER</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="scroll-down">
-            SCROLL TO KNOW ABOUT DEVELOPERS
-            <div class="arrow"></div>
-            <div class="arrow" style="animation-delay: 0.2s;"></div>
-        </div>
-    </section>
-
-    <section class="about-sec">
-        <div class="about-card">
-            <div>
-                <img src="me.png" alt="Mohit" onerror="this.src='https://via.placeholder.com/300x400/000/00f2fe?text=MOHIT+MANDAL'">
-                <div style="margin-top: 15px; border: 1px solid var(--neon-pink); padding: 5px; text-align: center; color: var(--neon-pink); font-family: 'Syncopate'; font-size: 0.6rem;">
-                    DEVELOPER_AGE: 16_PLUS
-                </div>
-            </div>
-            <div class="bio">
-                <h2>MOHIT MANDAL</h2>
-                <h4 style="color: var(--neon-pink); font-family: 'Syncopate'; font-size: 0.7rem; margin: 10px 0;">CORE ARCHITECT • 8822357598</h4>
-                <p style="border-left: 2px solid var(--neon-blue); padding-left: 15px;">
-                    I architect high-performance web ecosystems with a focus on clean logic. Specializing in <b>HTML5</b>, <b>CSS3</b>, and <b>JavaScript</b>.
-                </p>
-                <div style="background: rgba(0,0,0,0.4); padding: 15px; border-radius: 5px; font-family: monospace; font-size: 0.8rem; color: var(--neon-blue); border: 1px dashed rgba(0, 242, 254, 0.3); margin-top: 15px;">
-                    <div>> INITIALIZING_SKILLS_REPORT...</div>
-                    <div>[████████████████] 100% - HTML5_FLUENT</div>
-                    <div>[████████████████] 100% - CSS3_EXPERT</div>
-                </div>
-                <div style="margin-top: 25px;">
-                    <p style="font-family: 'Syncopate'; font-size: 0.6rem; color: #666; margin-bottom: 8px;">GLOBAL ARCHIVES (GITHUB)</p>
-                    <div class="github-container">
-                        <a href="https://github.com/mohitmandal66?tab=repositories" target="_blank" class="gh-card">ARCHIVE_01</a>
-                        <a href="https://github.com/MY-Website108/CAFE_OKTOBER.git" target="_blank" class="gh-card">ARCHIVE_02</a>
-                    </div>
-                </div>
-                <a href="https://wa.me/918822357598" target="_blank" class="modal-btn" style="width: 100%; text-align: center; margin-top: 20px;">INITIALIZE PROJECT ORDER</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-sec" style="border-top: 1px solid rgba(255, 0, 127, 0.2); background: radial-gradient(circle at bottom, #110008 0%, #000 70%);">
-        <div class="about-card" style="border-color: var(--neon-pink); box-shadow: 0 0 20px rgba(255, 0, 127, 0.1);">
-            <div class="bio" style="text-align: right;">
-                <h2 style="color: var(--neon-pink);">MD SAAD SIDDIQUE</h2>
-                <h4 style="color: var(--neon-blue); font-family: 'Syncopate'; font-size: 0.7rem; margin: 10px 0;">VISUAL ARCHITECT • DESIGN & MOTION</h4>
-                <p style="border-right: 2px solid var(--neon-pink); padding-right: 15px; border-left: none;">
-                    I craft the visual DNA of digital brands. Expert in <b>UI Design</b>, cinematic <b>Video Editing</b>, and <b>Graphics</b>.
-                </p>
-                <div style="background: rgba(0,0,0,0.4); padding: 15px; border-radius: 5px; font-family: monospace; font-size: 0.8rem; color: var(--neon-pink); border: 1px dashed rgba(255, 0, 127, 0.3); margin-top: 15px; text-align: left;">
-                    <div>> LOADING_CREATIVE_SUITE...</div>
-                    <div>[████████████████] 100% - GRAPHICS_UI</div>
-                    <div>[████████████████] 100% - VIDEO_MOTION</div>
-                </div>
-            </div>
-            <div style="order: -1;"> 
-                <img src="saad.png" alt="Saad" onerror="this.src='https://via.placeholder.com/300x400/000/ff007f?text=SAAD+SIDDIQUE'">
-                <a href="https://wa.me/919954204298" target="_blank" class="modal-btn" style="width: 100%; text-align: center; margin-top: 20px; background: var(--neon-pink); color: white;">INITIALIZE DESIGN</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-sec" style="flex-direction: column;">
-        <h2 style="font-family: 'Syncopate'; color: var(--neon-blue); margin-bottom: 30px; letter-spacing: 5px;">FEEDBACK_TERMINAL</h2>
-        <div class="feedback-container">
-            <input type="text" id="userName" class="feedback-input" placeholder="ENTER YOUR NAME...">
-            <textarea id="userFeedback" class="feedback-input" placeholder="WRITE YOUR FEEDBACK HERE..."></textarea>
-            <button onclick="sendFeedback()" class="modal-btn" style="width: 100%; letter-spacing: 3px;">TRANSMIT FEEDBACK</button>
-        </div>
-        <p style="margin-top: 20px; font-size: 0.7rem; color: #555; font-family: 'Syncopate';">SECURE_CHANNEL_ENCRYPTION: ACTIVE</p>
-    </section>
-
-    <script>
-        const modal = document.getElementById('projectModal');
-        const stage = document.getElementById('stage');
-        const orbits = document.querySelectorAll('.orbit');
-
-        function showDetails(title, desc, url) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('launchBtn').onclick = () => { warpTo(url); closeModal(); };
-            modal.classList.add('active');
-            orbits.forEach(o => o.style.animationPlayState = 'paused');
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            orbits.forEach(o => o.style.animationPlayState = 'running');
-        }
-
-        function warpTo(url) {
-            stage.style.transform = "scale(15) translateZ(1000px)";
-            stage.style.opacity = "0";
-            setTimeout(() => {
-                window.open(url, '_blank');
-                stage.style.transform = "scale(1)";
-                stage.style.opacity = "1";
-            }, 800);
-        }
-
-        function sendFeedback() {
-            const name = document.getElementById('userName').value;
-            const feedback = document.getElementById('userFeedback').value;
-            
-            if(!name || !feedback) {
-                alert("Please complete all transmission fields.");
-                return;
-            }
-
-            const message = `*NEW FEEDBACK TRANSMISSION*%0A%0A*Name:* ${name}%0A*Feedback:* ${feedback}%0A%0A_Sent via Portfolio Terminal_`;
-            const wpUrl = `https://wa.me/918822357598?text=${message}`;
-            
-            window.open(wpUrl, '_blank');
-        }
-
-        // Stars Generation
-        for (let i = 0; i < 200; i++) {
-            const s = document.createElement('div');
-            s.style.position = 'absolute'; s.style.background = '#fff';
-            s.style.width = '1.5px'; s.style.height = '1.5px';
-            s.style.top = Math.random() * 100 + 'vh'; s.style.left = Math.random() * 100 + 'vw';
-            s.style.opacity = Math.random();
-            document.getElementById('stars').appendChild(s);
-        }
-    </script>
-</body>
-</html>
+            <div class="orbit" id="orbit2" style="width: 440px; height:
