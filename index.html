@@ -99,7 +99,7 @@
         }
         .planet:hover { transform: scale(1.3); box-shadow: 0 0 40px var(--neon-blue); }
 
-        /* Planet Styles */
+        /* Planet Positions & Colors */
         .p1 { background: radial-gradient(circle at 30% 30%, #4facfe, #00f2fe, #000); top: -25px; left: 50%; margin-left: -25px; }
         .p2 { background: radial-gradient(circle at 30% 30%, #f093fb, #f5576c, #000); top: 50%; left: -25px; margin-top: -25px; }
         .p3 { background: radial-gradient(circle at 30% 30%, #fff, #bdc3c7, #000); bottom: -25px; left: 50%; margin-left: -25px; }
@@ -156,30 +156,13 @@
         .bio h2 { font-family: 'Syncopate'; color: var(--neon-blue); margin: 0; letter-spacing: 2px; }
         .bio p { font-size: 1rem; color: #ccc; line-height: 1.6; }
 
-        .feedback-container {
-            max-width: 600px; width: 90%;
-            background: rgba(10, 17, 40, 0.7);
-            border: 1px solid var(--neon-blue);
-            padding: 30px; border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        .feedback-input {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 15px; margin-bottom: 15px;
-            color: white; font-family: 'Rajdhani'; font-size: 1rem;
-            border-radius: 8px; outline: none;
-        }
-
+        .github-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
         .gh-card {
             background: rgba(255,255,255,0.05); border: 1px solid var(--neon-blue);
             padding: 12px; text-decoration: none; color: white;
             transition: 0.3s; text-align: center; font-family: 'Syncopate'; font-size: 0.65rem;
         }
         .gh-card:hover { background: var(--neon-blue); color: #000; }
-
-        .github-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
 
         .scroll-down {
             position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
@@ -251,14 +234,11 @@
         <div class="about-card">
             <div>
                 <img src="me.png" alt="Mohit" onerror="this.src='https://via.placeholder.com/300x400/000/00f2fe?text=MOHIT'">
-                <div style="margin-top: 15px; border: 1px solid var(--neon-pink); padding: 5px; text-align: center; color: var(--neon-pink); font-family: 'Syncopate'; font-size: 0.6rem;">
-                    CORE_DEVELOPER
-                </div>
             </div>
             <div class="bio">
                 <h2>MOHIT MANDAL</h2>
                 <h4 style="color: var(--neon-pink); font-family: 'Syncopate'; font-size: 0.7rem; margin: 10px 0;">CORE ARCHITECT</h4>
-                <p style="border-left: 2px solid var(--neon-blue); padding-left: 15px;">Architecting high-performance web ecosystems.</p>
+                <p>Architecting high-performance web ecosystems.</p>
                 <div class="github-container">
                     <a href="https://github.com/mohitmandal66?tab=repositories" class="gh-card">ARCHIVE_01</a>
                     <a href="https://github.com/MY-Website108/CAFE_OKTOBER.git" class="gh-card">ARCHIVE_02</a>
@@ -273,7 +253,7 @@
             <div class="bio" style="text-align: right;">
                 <h2 style="color: var(--neon-pink);">MD SAAD SIDDIQUE</h2>
                 <h4 style="color: var(--neon-blue); font-family: 'Syncopate'; font-size: 0.7rem; margin: 10px 0;">VISUAL ARCHITECT</h4>
-                <p style="border-right: 2px solid var(--neon-pink); padding-right: 15px;">Crafting the visual DNA of digital brands.</p>
+                <p>Crafting the visual DNA of digital brands.</p>
             </div>
             <div style="order: -1;"> 
                 <img src="saad.png" alt="Saad" onerror="this.src='https://via.placeholder.com/300x400/000/ff007f?text=SAAD'">
@@ -290,8 +270,10 @@
         function showDetails(title, desc, url) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalDesc').innerText = desc;
-            // UPDATE: Removed _blank to stay in same tab
+            
+            // KEY CHANGE: This now calls warpTo(url) which opens in SAME tab
             document.getElementById('launchBtn').onclick = () => { warpTo(url); };
+            
             modal.classList.add('active');
             orbits.forEach(o => o.style.animationPlayState = 'paused');
         }
@@ -305,11 +287,12 @@
             stage.style.transform = "scale(15) translateZ(1000px)";
             stage.style.opacity = "0";
             setTimeout(() => {
-                // UPDATE: Use location.href to stay in same tab
+                // KEY CHANGE: window.location.href opens the link in the SAME TAB
                 window.location.href = url;
             }, 800);
         }
 
+        // Generate stars
         for (let i = 0; i < 150; i++) {
             const s = document.createElement('div');
             s.style.position = 'absolute'; s.style.background = '#fff';
