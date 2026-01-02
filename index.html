@@ -23,7 +23,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- ADVANCED 3D STAR PARALLAX --- */
+        /* --- PARALLAX STAR FIELD --- */
         #star-field {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -31,14 +31,11 @@
             pointer-events: none;
             overflow: hidden;
         }
-        
         .star-layer {
             position: absolute;
             top: -10%; left: -10%; width: 120%; height: 120%;
             transition: transform 0.2s cubic-bezier(0.1, 0.5, 0.2, 1);
-            will-change: transform;
         }
-
         .star {
             position: absolute;
             background: #ffffff;
@@ -46,7 +43,6 @@
             box-shadow: 0 0 6px #ffffff;
             animation: twinkle var(--duration) infinite ease-in-out;
         }
-
         @keyframes twinkle {
             0%, 100% { opacity: 0.3; transform: scale(0.8); }
             50% { opacity: 1; transform: scale(1.2); }
@@ -190,6 +186,32 @@
             font-family: 'Syncopate';
         }
 
+        /* --- NEW FEEDBACK STYLES --- */
+        .feedback-container {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            text-align: center;
+        }
+        .feedback-input {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            font-family: 'Rajdhani';
+            font-size: 1.1rem;
+            outline: none;
+        }
+        .feedback-input:focus { border-color: var(--neon-blue); }
+        textarea.feedback-input { height: 120px; resize: none; }
+
         .scroll-down {
             position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
             display: flex; flex-direction: column; align-items: center;
@@ -206,7 +228,10 @@
     <div class="universe-bg"></div>
     
     <div id="star-field">
-        <div class="star-layer" id="layer1" data-speed="0.10"></div> <div class="star-layer" id="layer2" data-speed="0.05"></div> <div class="star-layer" id="layer3" data-speed="0.02"></div> </div>
+        <div class="star-layer" id="layer1" data-speed="0.10"></div>
+        <div class="star-layer" id="layer2" data-speed="0.05"></div>
+        <div class="star-layer" id="layer3" data-speed="0.02"></div>
+    </div>
 
     <div id="projectModal">
         <h2 id="modalTitle" style="font-family: 'Syncopate'; color: var(--neon-blue);">PROJECT</h2>
@@ -217,53 +242,40 @@
 
     <section class="hero">
         <div class="main-title"><h1>OUR PROJECTS PORTFOLIO</h1></div>
-
         <div id="stage">
             <div class="sun-sphere"></div>
-
             <div class="orbit" style="width: 300px; height: 300px; animation-duration: 15s;">
                 <div class="planet p1" onclick="showDetails('PADHAI MATE', 'Futuristic learning ecosystem.', 'https://mohitmandal66.github.io/padhai_mate/')">
                     <div class="project-label">PADHAI MATE</div>
                 </div>
             </div>
-
             <div class="orbit" style="width: 520px; height: 520px; animation-duration: 25s; animation-direction: reverse;">
                 <div class="planet p2" onclick="showDetails('SYMPTOMAX', 'Health diagnostic interface.', 'https://mohitmandal66.github.io/SYMPTOMAX/')">
                     <div class="project-label" style="text-shadow: 0 0 8px var(--neon-pink);">SYMPTOMAX</div>
                 </div>
             </div>
-
             <div class="orbit" style="width: 750px; height: 750px; animation-duration: 35s;">
                 <div class="planet p3" onclick="showDetails('CAFE OKTOBER', 'Cinematic digital menu.', 'https://my-website108.github.io/CAFE_OKTOBER/')">
                     <div class="project-label" style="text-shadow: 0 0 8px #fff;">CAFE OKTOBER</div>
                 </div>
             </div>
-
             <div class="orbit" style="width: 980px; height: 980px; animation-duration: 45s; animation-direction: reverse;">
                 <div class="planet p4" onclick="showDetails('RING PORTAL', '3D Mystical Dr. Strange effect.', 'https://mohitmandal66.github.io/DR-STRANGE-RING-PORTAL/')">
                     <div class="project-label" style="text-shadow: 0 0 8px var(--portal-orange);">RING PORTAL</div>
                 </div>
             </div>
         </div>
-
-        <div class="scroll-down">ARCHITECTS BELOW</div>
+        <div class="scroll-down">DEVELOPER LOGS BELOW</div>
     </section>
 
     <section class="about-sec">
         <div class="about-card">
-            <div>
-                <img src="me.png" alt="Mohit" onerror="this.src='https://via.placeholder.com/400x500/000/00f2fe?text=MOHIT'">
-            </div>
+            <div><img src="me.png" alt="Mohit" onerror="this.src='https://via.placeholder.com/400x500/000/00f2fe?text=MOHIT'"></div>
             <div class="bio">
                 <h2 style="font-family: 'Syncopate'; color: var(--neon-blue); font-size: 2rem;">MOHIT MANDAL</h2>
-                <h4 style="color: var(--neon-pink); font-family: 'Syncopate'; letter-spacing: 3px;">LEAD DEVELOPER & CORE ARCHITECT | AGE: 16</h4>
-                <p style="color:#bbb; line-height: 1.8; font-size: 1.1rem;">
-                    A coding prodigy who mastered system architecture at 16. Mohit is responsible for the complex neural logic and back-end structural integrity of our solar ecosystems. He ensures every planet spins with mathematical precision.
-                </p>
-                <div style="margin: 20px 0;">
-                    <span class="skill-tag">NEURAL NETWORKS</span> <span class="skill-tag">CORE LOGIC</span> 
-                    <span class="skill-tag">ADVANCED PYTHON</span> <span class="skill-tag">CYBER ARCHITECTURE</span>
-                </div>
+                <h4 style="color: var(--neon-pink); font-family: 'Syncopate'; letter-spacing: 3px;">CORE ARCHITECT | AGE: 16</h4>
+                <p style="color:#bbb; line-height: 1.8; font-size: 1.1rem;">A 16-year-old coding prodigy. Mohit handles the logic-driven foundations of our digital solar systems.</p>
+                <div style="margin: 20px 0;"><span class="skill-tag">LOGIC ENGINE</span><span class="skill-tag">SYSTEM CORE</span></div>
                 <a href="https://wa.me/918822357598" class="modal-btn">CONTACT ARCHITECT</a>
             </div>
         </div>
@@ -273,20 +285,24 @@
         <div class="about-card" style="border-color: var(--neon-pink); grid-template-columns: 2fr 1fr;">
             <div class="bio" style="text-align: right;">
                 <h2 style="font-family: 'Syncopate'; color: var(--neon-pink); font-size: 2rem;">MD SAAD SIDDIQUE</h2>
-                <h4 style="color: var(--neon-blue); font-family: 'Syncopate'; letter-spacing: 3px;">VISUAL MASTER & DESIGN VISIONARY | AGE: 16</h4>
-                <p style="color:#bbb; line-height: 1.8; font-size: 1.1rem;">
-                    The 16-year-old creative force behind the aesthetic universe. Saad specializes in weaving high-fidelity visuals with interactive 3D environments, transforming websites into immersive cinematic portals.
-                </p>
-                <div style="margin: 20px 0;">
-                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">3D RENDERING</span> 
-                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">AR INTERFACES</span> 
-                    <span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">VFX DESIGN</span>
-                </div>
+                <h4 style="color: var(--neon-blue); font-family: 'Syncopate'; letter-spacing: 3px;">VISUAL MASTER | AGE: 16</h4>
+                <p style="color:#bbb; line-height: 1.8; font-size: 1.1rem;">Specializing in 3D visuals and immersive UI, Saad builds the galaxies you see here at age 16.</p>
+                <div style="margin: 20px 0;"><span class="skill-tag" style="color:var(--neon-pink); border-color:var(--neon-pink);">VISUAL VFX</span></div>
                 <a href="https://wa.me/919954204298" class="modal-btn" style="background: var(--neon-pink); color:white;">CONTACT DESIGNER</a>
             </div>
-            <div style="order: 2;"> 
-                <img src="saad.png" alt="Saad" style="border-color: var(--neon-pink);" onerror="this.src='https://via.placeholder.com/400x500/000/ff007f?text=SAAD'">
-            </div>
+            <div style="order: 2;"><img src="saad.png" alt="Saad" style="border-color: var(--neon-pink);" onerror="this.src='https://via.placeholder.com/400x500/000/ff007f?text=SAAD'"></div>
+        </div>
+    </section>
+
+    <section class="about-sec" style="background: #000;">
+        <div class="feedback-container">
+            <h2 style="font-family: 'Syncopate'; color: var(--neon-blue);">TRANSMIT FEEDBACK</h2>
+            <p style="color: #888; margin-bottom: 20px;">Send a direct message to the Lead Developer</p>
+            
+            <input type="text" id="fbName" class="feedback-input" placeholder="Your Name / Identity">
+            <textarea id="fbMsg" class="feedback-input" placeholder="Enter your mission feedback or message here..."></textarea>
+            
+            <button class="modal-btn" style="width: 100%;" onclick="sendFeedback()">UPLOAD TO ARCHITECT</button>
         </div>
     </section>
 
@@ -299,10 +315,27 @@
 
         function forceMusic() {
             if (!hasStarted) {
-                bgAudio.play();
+                bgAudio.play().catch(() => {});
                 bgAudio.volume = 0.5;
                 hasStarted = true;
             }
+        }
+
+        // FEEDBACK LOGIC
+        function sendFeedback() {
+            const name = document.getElementById('fbName').value;
+            const msg = document.getElementById('fbMsg').value;
+            const phone = "918822357598"; // Format: CountryCodeNumber
+
+            if (name === "" || msg === "") {
+                alert("Please fill in both fields before transmitting.");
+                return;
+            }
+
+            const formattedMsg = `*SOLAR PORTFOLIO FEEDBACK*%0A%0A*From:* ${name}%0A*Message:* ${msg}`;
+            const whatsappURL = `https://wa.me/${phone}?text=${formattedMsg}`;
+            
+            window.open(whatsappURL, '_blank');
         }
 
         function showDetails(title, desc, url) {
@@ -324,18 +357,15 @@
             setTimeout(() => { window.location.href = url; }, 800);
         }
 
-        // --- STAR GENERATION ---
+        // STAR GENERATION & PARALLAX
         const starLayers = document.querySelectorAll('.star-layer');
-        const starCounts = [80, 120, 200]; // Distribution for Near, Mid, Far
-
         starLayers.forEach((layer, index) => {
-            for (let i = 0; i < starCounts[index]; i++) {
+            const counts = [80, 120, 200];
+            for (let i = 0; i < counts[index]; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                // Adjust size: Nearer stars are slightly larger
                 const size = (3 - index) + Math.random() * 2 + 'px';
-                star.style.width = size;
-                star.style.height = size;
+                star.style.width = size; star.style.height = size;
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
                 star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
@@ -344,22 +374,14 @@
             }
         });
 
-        // --- PARALLAX INPUT HANDLING ---
-        function moveStars(e) {
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            
-            const x = (clientX - window.innerWidth / 2);
-            const y = (clientY - window.innerHeight / 2);
-            
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX - window.innerWidth / 2;
+            const y = e.clientY - window.innerHeight / 2;
             starLayers.forEach(layer => {
                 const speed = parseFloat(layer.getAttribute('data-speed'));
                 layer.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
             });
-        }
-
-        window.addEventListener('mousemove', moveStars);
-        window.addEventListener('touchmove', moveStars);
+        });
     </script>
 </body>
 </html>
